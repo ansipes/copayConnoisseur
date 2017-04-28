@@ -51,20 +51,20 @@
             <div class="uk-grid uk-grid-collapse" v-show="barcode">
 
               <div class="uk-width-1-2 uk-margin-bottom">
-                <p><strong>BIN:</strong></p>
+                <p style="margin-bottom: -5px;"><strong>BIN:</strong></p>
 
                 <!-- Show this when the content is live. -->
-                <p v-show="!editing">{{ copayCard.bin }}</p>
+                <p style="margin-top: -5px;" v-show="!editing">{{ copayCard.bin }}</p>
 
                 <!-- Show this when the content is being edited. -->
                 <input v-show="editing" style="width: 100px;" type="text" v-model="bin" />
               </div>
 
               <div class="uk-width-1-2 uk-margin-bottom  uk-text-right">
-                <p><strong>PCN:</strong><br /></p>
+                <p style="margin-bottom: -5px;"><strong>PCN:</strong><br /></p>
 
                 <!-- Show this when the content is live. -->
-                <p v-show="!editing">{{ copayCard.pcn }}</p>
+                <p style="margin-top: -5px;" v-show="!editing">{{ copayCard.pcn }}</p>
 
                 <!-- Show this when the content is being edited. -->
                 <input v-show="editing" style="width: 100px; text-align: right;" type="text" v-model="pcn" />
@@ -74,20 +74,20 @@
             <div class="uk-grid uk-grid-collapse" v-show="barcode">
 
               <div class="uk-width-1-2">
-                <p><strong>GRP:</strong></p>
+                <p style="margin-bottom: -5px;"><strong>GRP:</strong></p>
 
                 <!-- Show this when the content is live. -->
-                <p v-show="!editing">{{ copayCard.group }}</p>
+                <p style="margin-top: -5px;" v-show="!editing">{{ copayCard.group }}</p>
 
                 <!-- Show this when the content is being edited. -->
                 <input v-show="editing" style="width: 100px;" type="text" v-model="group" />
               </div>
 
               <div class="uk-width-1-2 uk-text-right">
-                <p><strong>PID:</strong></p>
+                <p style="margin-bottom: -5px;"><strong>PID:</strong></p>
 
                 <!-- Show this when the content is live. -->
-                <p v-show="!editing" class="uk-padding-collapse">{{ copayCard.member }}</p>
+                <p style="margin-top: -5px;" v-show="!editing" class="uk-padding-collapse">{{ copayCard.member }}</p>
 
                 <!-- Show this when the content is being edited. -->
                 <input v-show="editing" style="width: 100px; text-align: right;" type="text" v-model="member" />

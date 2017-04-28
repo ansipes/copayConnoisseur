@@ -2,7 +2,7 @@
 
   <div class="uk-modal-dialog" style="background: none;">
   <div class="uk-grid">
-        <div class="uk-width-1-3@m uk-margin-top uk-align-center">
+        <div class="uk-width-1-1 uk-margin-top uk-align-center">
           <div class="uk-card uk-card-default" style="border-radius: 25px;">
             <div class="uk-card-header">
               <div class="uk-grid-small uk-flex-middle uk-grid uk-padding-collapse">
@@ -25,20 +25,21 @@
               <!-- Show this when the content is being edited. -->
 
               <input style="width: 100%;" type="text" placeholder="Description" v-model="description" />
+              <br /><br />
 
               <!-- This is where the coupon details are displayed. -->
 
               <div class="uk-grid uk-grid-collapse" >
 
                 <div class="uk-width-1-2 uk-margin-bottom">
-                  <p><strong>BIN:</strong></p>
+                  <p style="margin-bottom: -5px;"><strong>BIN:</strong></p>
 
                   <!-- Show this when the content is being edited. -->
                   <input style="width: 100px;" type="text" placeholder="BIN" v-model="bin" />
                 </div>
 
                 <div class="uk-width-1-2 uk-margin-bottom  uk-text-right">
-                  <p><strong>PCN:</strong><br /></p>
+                  <p style="margin-bottom: -5px;"><strong>PCN:</strong><br /></p>
 
                   <!-- Show this when the content is being edited. -->
                   <input  style="width: 100px; text-align: right;" type="text" placeholder="PCN" v-model="pcn" />
@@ -48,14 +49,14 @@
               <div class="uk-grid uk-grid-collapse" >
 
                 <div class="uk-width-1-2">
-                  <p><strong>GRP:</strong></p>
+                  <p style="margin-bottom: -5px;"><strong>GRP:</strong></p>
 
                   <!-- Show this when the content is being edited. -->
                   <input style="width: 100px;" type="text" placeholder="GRP" v-model="group" />
                 </div>
 
                 <div class="uk-width-1-2 uk-text-right">
-                  <p><strong>PID:</strong></p>
+                  <p style="margin-bottom: -5px;"><strong>PID:</strong></p>
 
                   <!-- Show this when the content is being edited. -->
                   <input style="width: 100px; text-align: right;" type="text" placeholder="PID" v-model="member" />
@@ -82,9 +83,7 @@
                   </div>
                 </div>
               </div>
-
         </div>
-
       </div>
     </div>
   </div>
@@ -115,7 +114,7 @@ export default {
 
   methods: {
     create () {
-      console.log('ContactForm -> create');
+      console.log('CopayCardForm -> create');
       if (this.loading) {
         alert('request is already being made');
         return false;
@@ -126,17 +125,24 @@ export default {
 
     sendRequest () {
       axios.post('/copayCards', {
-
+        brand: this.brand,
+        generic: this.generic,
+        copay: this.copay,
+        description: this.description,
+        bin: this.bin,
+        pcn: this.pcn,
+        group: this.group,
+        member: this.member
       })
       .then((response) => {
-        console.log('ContactForm -> sendRequest success');
+        console.log('CopayCardForm -> sendRequest success');
         console.log(response.data);
         this.loading = false;
         this.reset();
         this.$emit('created');
       })
       .catch((error) => {
-        console.error('ContactForm -> sendRequest error');
+        console.error('CopayCardForm -> sendRequest error');
         // show an error message
       });
     },
